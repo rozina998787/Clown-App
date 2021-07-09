@@ -12,7 +12,7 @@ function setup() {
   video.size(300, 300);
   video.hide();
 
-  poseNet = mI5.poseNet(video, modelLoaded);
+  poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on("pose", gotPoses);
 }
 
@@ -22,9 +22,9 @@ function modelLoaded() {
 
 function gotPoses(results) {
   if (results.length > 0) {
-    console.log(result);
-    noseX = results[0].pose.nose.x;
-    noseY = results[0].pose.nose.y;
+    console.log(results);
+    noseX = results[0].pose.nose.x - 15;
+    noseY = results[0].pose.nose.y - 15;
   }
 }
 
